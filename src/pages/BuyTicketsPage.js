@@ -14,12 +14,10 @@ const BuyTicketsPage = () => {
   });
   const [showPaymentModal, setShowPaymentModal] = useState(false);
 
-  // Handle session selection
   const handleSessionSelect = (session) => {
     setSelectedSession(session);
   };
 
-  // Handle form input changes
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -27,7 +25,6 @@ const BuyTicketsPage = () => {
     });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedSession) {
@@ -37,13 +34,11 @@ const BuyTicketsPage = () => {
     setShowPaymentModal(true);
   };
 
-  // Initiate Razorpay payment
   const initiatePayment = async () => {
     if (!selectedSession) return;
 
     try {
-      // Create order on backend
-      const orderRes = await fetch("https://tedx-dyp-akurdi.onrender.com", {
+      const orderRes = await fetch("https://tedx-dyp-akurdi.onrender.com/api/payment/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: selectedSession.price }),
@@ -56,7 +51,7 @@ const BuyTicketsPage = () => {
       }
 
       const options = {
-        key: "rzp_test_20KaMSW4yjfZm5", // Your test key
+        key: "rzp_test_20KaMSW4yjfZm5", // Replace with live key before production
         amount: selectedSession.price * 100,
         currency: "INR",
         name: "TEDx DYP Akurdi",
@@ -84,11 +79,9 @@ const BuyTicketsPage = () => {
     }
   };
 
-  // Verify payment and store in DB
   const verifyPayment = async (response) => {
     try {
-      // IMPORTANT: Use snake_case keys as expected by your backend!
-      const res = await fetch("https://tedx-dyp-akurdi.onrender.com", {
+      const res = await fetch("https://tedx-dyp-akurdi.onrender.com/api/payment/verify-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -106,7 +99,6 @@ const BuyTicketsPage = () => {
 
       const data = await res.json();
       if (data.success) {
-        // Redirect to success page with ticket details
         window.location.href = `/success?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phone=${encodeURIComponent(formData.phone)}&amount=${selectedSession.price}&ticketId=${data.ticketId}`;
       } else {
         alert("Payment verification failed");
@@ -121,7 +113,6 @@ const BuyTicketsPage = () => {
     <PageTemplate title="Register for TEDx Event" subtitle="Choose your session and join us for an inspiring experience">
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Session Selection */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Select Your Session</h2>
             <div className="space-y-4">
@@ -136,7 +127,6 @@ const BuyTicketsPage = () => {
             </div>
           </div>
 
-          {/* Registration Form */}
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Details</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -163,7 +153,6 @@ const BuyTicketsPage = () => {
         </div>
       </div>
 
-      {/* Payment Confirmation Modal */}
       <Modal isOpen={showPaymentModal} onClose={() => setShowPaymentModal(false)} title="Confirm Payment">
         <div className="space-y-4">
           <div className="bg-gray-50 p-4 rounded-lg">
@@ -194,3 +183,4 @@ const BuyTicketsPage = () => {
 };
 
 export default BuyTicketsPage;
+
