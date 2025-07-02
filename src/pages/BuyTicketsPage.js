@@ -38,7 +38,7 @@ const BuyTicketsPage = () => {
     if (!selectedSession) return;
 
     try {
-      const orderRes = await fetch("https://tedx-dyp-akurdi.onrender.com/api/payment/create-order", {
+      const orderRes = await fetch("https://tedx-dyp-akurdi-backend.onrender.com/api/payment/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: selectedSession.price }),
@@ -81,7 +81,7 @@ const BuyTicketsPage = () => {
 
   const verifyPayment = async (response) => {
     try {
-      const res = await fetch("https://tedx-dyp-akurdi.onrender.com/api/payment/verify-payment", {
+      const res = await fetch("https://tedx-dyp-akurdi-backend.onrender.com/api/payment/verify-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
