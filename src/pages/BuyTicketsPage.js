@@ -43,7 +43,7 @@ const BuyTicketsPage = () => {
 
     try {
       // Create order on backend
-      const orderRes = await fetch("http://localhost:5000/api/payment/create-order", {
+      const orderRes = await fetch("https://tedx-dyp-akurdi.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: selectedSession.price }),
@@ -88,7 +88,7 @@ const BuyTicketsPage = () => {
   const verifyPayment = async (response) => {
     try {
       // IMPORTANT: Use snake_case keys as expected by your backend!
-      const res = await fetch("http://localhost:5000/api/payment/verify-payment", {
+      const res = await fetch("https://tedx-dyp-akurdi.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
