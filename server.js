@@ -33,7 +33,8 @@ const app = express();
 
 // ✅ CORS: Only allow your deployed frontend domains
 const allowedOrigins = [
-  "https://tedx-dyp-akurdi-yqm8-7f2qq97g5-saurabhmelgirkars-projects.vercel.app", // <-- your actual Vercel deployment URL
+  "https://tedx-dyp-akurdi-yqm8-7f2qq97g5-saurabhmelgirkars-projects.vercel.app",
+   "https://tedx-dyp-akurdi.vercel.app",// <-- your actual Vercel deployment URL
   // "https://yourcustomdomain.com", // Add this if you have a custom domain
 ];
 
