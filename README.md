@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+comm
+ands 
+
+acer@DESKTOP-QDUUPGJ MINGW64 ~/Documents/tedx demo page/tedx-dyp-akurdi/server (main)
+$ pm2 delete syncTicketsToSheet
+pm2 start syncTicketsToSheet.js --name syncTicketsToSheet
+pm2 save
+$ pm2 resurrect

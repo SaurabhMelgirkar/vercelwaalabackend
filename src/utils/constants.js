@@ -13,7 +13,35 @@ export const SPEAKERS = [
     image: "/assets/tolstoy.png", 
     description: "Examining the meaning of life through moral philosophy and the power of human connection."
   }
-];
+
+,{
+    id: 2,
+    name: "Leo Tolstoy",
+    title: "Philosopher & Novelist",
+    image: "/assets/tolstoy.png", 
+    description: "Examining the meaning of life through moral philosophy and the power of human connection."
+  },
+{
+    id: 2,
+    name: "Leo Tolstoy",
+    title: "Philosopher & Novelist",
+    image: "/assets/tolstoy.png", 
+    description: "Examining the meaning of life through moral philosophy and the power of human connection."
+  },
+{
+    id: 2,
+    name: "Leo Tolstoy",
+    title: "Philosopher & Novelist",
+    image: "/assets/tolstoy.png", 
+    description: "Examining the meaning of life through moral philosophy and the power of human connection."
+  },
+{
+    id: 2,
+    name: "Leo Tolstoy",
+    title: "Philosopher & Novelist",
+    image: "/assets/tolstoy.png", 
+    description: "Examining the meaning of life through moral philosophy and the power of human connection."
+  }];
 
 export const SESSIONS = [
   {
