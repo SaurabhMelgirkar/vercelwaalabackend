@@ -26,7 +26,7 @@
 // });
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
+const connectDB = require('../config/db');
 require('dotenv').config();
 
 const app = express();
@@ -34,11 +34,10 @@ const app = express();
 // ✅ CORS: Only allow your deployed frontend domains
 const allowedOrigins = [
   "https://tedx-dyp-akurdi-yqm8-7f2qq97g5-saurabhmelgirkars-projects.vercel.app",
-   "https://tedx-dyp-akurdi.vercel.app",// <-- your actual Vercel deployment URL
-  // "https://yourcustomdomain.com", // Add this if you have a custom domain
+  "https://tedx-dyp-akurdi.vercel.app",
+  // "https://yourcustomdomain.com",
 ];
 
-// CORS configuration
 app.use(cors({
   origin: allowedOrigins,
   credentials: true
@@ -51,7 +50,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use('/api/payment', require('./routes/paymentRoutes'));
+app.use('/api/payment', require('../routes/paymentRoutes'));
 
 // Test route
 app.get('/', (req, res) => {
@@ -63,7 +62,6 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// ⛔ REMOVE app.listen()
+// ✅ Export the app for Vercel
+module.exports = app;
