@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createOrder } = require('./utils/razorpayUtils');
+const { createOrder } = require('../utils/razorpayUtils');
 const Ticket = require('./api/models/Ticket');
 const Counter = require('./api/models/Counter');
 const crypto = require('crypto');
