@@ -22,9 +22,15 @@ app.use(express.json());
 app.use('/api/payment', require('../routes/paymentRoutes'));
 
 // Health check (root route)
-app.get('/', (req, res) => {
-  res.send('Backend is running!');
+// inside api/server.js
+app.get('/_status', (req, res) => {
+  res.json({
+    MONGO_URI_exists: !!process.env.MONGO_URI,
+    RAZORPAY_KEY_ID_exists: !!process.env.RAZORPAY_KEY_ID,
+    NODE_ENV: process.env.NODE_ENV || 'not-set'
+  });
 });
+
 
 // 404 handler
 app.use((req, res) => {
