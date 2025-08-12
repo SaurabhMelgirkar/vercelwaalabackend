@@ -14,7 +14,7 @@ const generateTicket = (ticketData) => {
     try {
       const doc = new PDFDocument();
       const fileName = `ticket_${Date.now()}.pdf`;
-      const filePath = path.join(__dirname, '../tickets', fileName);
+      const filePath = path.join(__dirname, './tickets', fileName);
 
       // Ensure tickets directory exists
       if (!fs.existsSync(path.dirname(filePath))) {
