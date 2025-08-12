@@ -3,7 +3,7 @@
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
-const { generateTicket } = require('../utils/pdfGenerator'); // Adjust path if needed
+const { generateTicket } = require('./utils/pdfGenerator'); // Adjust path if needed
 
 // Configure the transporter
 const transporter = nodemailer.createTransport({
