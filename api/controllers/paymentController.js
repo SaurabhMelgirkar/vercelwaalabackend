@@ -1,5 +1,5 @@
-const { createOrder } = require('../utils/razorpay');
-const Ticket = require('../models/Ticket');
+const { createOrder } = require('./utils/razorpay');
+const Ticket = require('./models/Ticket');
 
 exports.createPaymentOrder = async (req, res) => {
   try {
