@@ -19,7 +19,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use('/api/payment', require('../routes/paymentRoutes'));
+app.use('/api/payment', require('./routes/paymentRoutes'));
 
 // Health check (root route)
 // inside api/server.js
