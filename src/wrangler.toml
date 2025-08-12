@@ -1,7 +1,0 @@
-name = "tedx-backend"
-type = "javascript"
-account_id = "136b5cb6393476b2dc4081780abfdfac"
-workers_dev = true
-compatibility_date = "2025-08-07"
-main = "../server.js"
-

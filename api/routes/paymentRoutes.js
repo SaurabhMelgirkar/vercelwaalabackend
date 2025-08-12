@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { createOrder } = require('../utils/razorpayUtils');
-const Ticket = require('../models/Ticket');
-const Counter = require('../models/Counter');
+const Ticket = require('../api/models/Ticket');
+const Counter = require('../api/models/Counter');
 const crypto = require('crypto');
 // const { generateTicket } = require('../utils/generateTicket'); // Your PDF generator
 const { generateTicket } = require('../utils/pdfGenerator');
