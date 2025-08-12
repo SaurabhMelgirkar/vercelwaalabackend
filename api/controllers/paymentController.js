@@ -18,7 +18,7 @@ exports.createPaymentOrder = async (req, res) => {
 exports.verifyPayment = async (req, res) => {
   try {
     const { razorpayOrderId, razorpayPaymentId, razorpaySignature, name, email, phone, session, amount } = req.body;
-    const { verifyPayment } = require('../utils/razorpay');
+    const { verifyPayment } = require('./utils/razorpay');
     const isValid = verifyPayment(razorpayOrderId, razorpayPaymentId, razorpaySignature);
 
     if (!isValid) {
@@ -38,9 +38,9 @@ exports.verifyPayment = async (req, res) => {
     await ticket.save();
 
     // Generate PDF ticket and send email
-    const { generateTicket } = require('../utils/pdfGenerator');
+    const { generateTicket } = require('./utils/pdfGenerator');
     const filePath = await generateTicket(ticket.toObject());
-    const { sendEmail } = require('../utils/emailService');
+    const { sendEmail } = require('./utils/emailService');
     await sendEmail(email, "Your TEDx DYP Akurdi Ticket", "Please find your ticket attached.", filePath);
 
     res.json({ success: true, message: "Payment verified and ticket sent to email" });
