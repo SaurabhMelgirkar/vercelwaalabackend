@@ -21,9 +21,9 @@ app.use(express.json());
 // Routes
 app.use('/api/payment', require('../routes/paymentRoutes'));
 
-// Health check
+// Health check (root route)
 app.get('/', (req, res) => {
-  res.json({ message: 'Server is running!' });
+  res.send('Backend is running!');
 });
 
 // 404 handler
